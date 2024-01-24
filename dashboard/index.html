@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <!-- Include Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Dashboard</h1>
+    <!-- Navigation links here -->
+    <ul class="nlinks">
+        <li>
+            <a href="https://www.google.co.in/" target="_blank">home</a>
+        </li>
+        <li>
+            <a href="https://www.google.co.in/">home</a>
+        </li>
+        <li>
+            <a href="https://www.google.co.in/">home</a>
+        </li>
+    </ul>
+  </header>
+
+  <div class="summary-cards">
+    <!-- Sample summary cards displaying key metrics -->
+    <div class="card">
+      <h2>Total Users</h2>
+      <p>1000</p>
+    </div>
+    <div class="card">
+      <h2>Total Orders</h2>
+      <p>500</p>
+    </div>
+    <!-- Add more summary cards for other metrics -->
+  </div>
+
+  <div class="charts">
+    <!-- Sample charts to visualize data -->
+    <canvas class="canva" id="lineChart"></canvas> <br>
+    <canvas class="canva" id="barChart"></canvas>
+    <!-- Add more charts based on data visualization needs -->
+  </div>
+
+  <script>
+    // Sample data for charts
+    const lineChartData = {
+      labels: ['Jan', 'Feb', 'Mar'],
+      datasets: [{
+        label: 'Monthly Revenue',
+        data: [1000, 1500, 1200],
+        borderColor: 'blue',
+        fill: false
+      }]
+    };
+
+    const barChartData = {
+      labels: ['Product A', 'Product B', 'Product C'],
+      datasets: [{
+        label: 'Sales',
+        data: [200, 300, 150],
+        backgroundColor: ['red', 'green', 'blue']
+      }]
+    };
+
+    // Create line chart
+    const lineChartCtx = document.getElementById('lineChart').getContext("2d");
+    new Chart(lineChartCtx, {
+      type: 'line',
+      data: lineChartData
+    });
+
+    // Create bar chart
+    const barChartCtx = document.getElementById('barChart').getContext('2d');
+    new Chart(barChartCtx, {
+      type: 'bar',
+      data: barChartData
+    });
+  </script>
+
+  <style>
+    /* Simple styling for the dashboard layout */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .summary-cards {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+    }
+    .nlinks{
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .card {
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+      width: 200px;
+    }
+
+    .charts {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+      
+      
+    }
+    .canva{
+        width: 50%;
+        height: 100vh;
+    }
+    canvas {
+      width: 50%;
+      height: 30vh;
+    }
+  </style>
+</body>
+</html>
